@@ -157,6 +157,45 @@ html {
 /* Hide scrollbar for Internet Explorer & Edge */
 body {
     -ms-overflow-style: none;
+}
+/* Hides the bottom images on large screens */
+.bottom-images-container {
+    display: none;
+}
+
+/* When screen width is 1080px or smaller, hide side images & show bottom images */
+@media (max-width: 1080px) {  
+    .side-images-container {
+        display: none; /* Hides side images */
+    }
+
+    .bottom-images-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers images */
+        gap: 10px; /* Adds spacing between images */
+        padding: 20px; /* Adds padding around the section */
+    }
+
+    .bottom-images-container img {
+        width: 30%;  /* Fits 3 per row */
+        max-width: 200px; /* Prevents images from getting too large */
+        height: auto;
+        border-radius: 10px; /* Keeps smooth edges */
+    }
+}
+
+/* Further adjustment for phones */
+@media (max-width: 768px) {  
+    .bottom-images-container img {
+        width: 45%;  /* Fits 2 per row */
+    }
+}
+.bottom-images-container img {
+    width: 100%;
+    height: auto; /* Ensures images don’t stretch */
+    aspect-ratio: 1 / 1; /* Forces square dimensions */
+    object-fit: cover; /* Prevents weird stretching */
 }</style>
 		</head>
 
